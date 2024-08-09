@@ -8,15 +8,25 @@ import { useTodo } from './context/TodoContext';
 
 const App = () => {
   const {theme, toggleTheme} = useTheme()
-  const {todos} = useTodo()
+  const {todos,setTodos} = useTodo()
   // const {isOpenModal, setIsOpenModal} = useState(false)
+
+  const [query, setQuery] = useState('')
+  const handleChange = (e) => {
+    const results = todos.filter((todo) => {
+      if(e.target.value == "") return todos;
+      return todo["task"].toLowerCase().includes(e.target.value.toLowerCase())
+    })
+    // setQuery(e.target.value)
+    setTodos(results)
+  }
   
   return (
     <div className='relative flex flex-col space-y-4 items-center p-4 h-[100vh] w-[100vw] bg-white dark:bg-slate-900'>
       <h1 className='font-medium text-2xl dark:text-white mt-4'>TODO LIST</h1>
 
       <div className='flex space-x-5 items-center w-full justify-center container'>
-        <input type="text" placeholder='Search note...' className='w-[60%] md:w-[50%] rounded-md outline-none border px-2 py-1 border-third-color' />
+        <input type="search" onChange={handleChange} placeholder='Search note...' className='w-[60%] md:w-[50%] rounded-md outline-none border px-2 py-1 border-third-color' />
         <button className='text-white bg-third-color px-4 py-1 rounded-md'>ALL</button>
         <button className='text-xl text-white bg-third-color p-1 rounded-md' onClick={toggleTheme}>
             {theme === "light" ? <FaMoon /> : <FaSun />}

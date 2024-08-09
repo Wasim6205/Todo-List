@@ -36,7 +36,7 @@ export const TodoContextProvider = ({children}) => {
       }, [todos])
 
     return (
-        <TodoContext.Provider value={{ todos, addTodo, deleteTodo, updateTodo, toggleComplete }}>
+        <TodoContext.Provider value={{ todos,setTodos, addTodo, deleteTodo, updateTodo, toggleComplete }}>
             {children}
         </TodoContext.Provider>
     );
