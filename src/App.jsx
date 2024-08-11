@@ -22,8 +22,8 @@ const App = () => {
   }
   
   return (
-    <div className='relative flex flex-col space-y-4 items-center p-4 h-[100vh] w-[100vw] bg-white dark:bg-slate-900'>
-      <h1 className='font-medium text-2xl dark:text-white mt-4'>TODO LIST</h1>
+    <div className='relative flex flex-col space-y-4 items-center p-4 h-screen w-[100vw] bg-white dark:bg-slate-900'>
+      <h1 className='font-medium text-3xl dark:text-white pt-4'>TODO LIST</h1>
 
       <div className='flex space-x-5 items-center w-full justify-center container'>
         <input type="search" onChange={handleChange} placeholder='Search note...' className='w-[60%] md:w-[50%] rounded-md outline-none border px-2 py-1 border-third-color' />
@@ -41,7 +41,7 @@ const App = () => {
         }
       </div>
 
-      <div onClick={()=>document.getElementById('my_modal_2').showModal()} className='absolute bottom-8 right-12 bg-third-color rounded-full p-2 cursor-pointer'>
+      <div onClick={()=>document.getElementById('my_modal_2').showModal()} className='absolute bottom-16 right-12 bg-third-color rounded-full p-2 cursor-pointer'>
         <FaPlus color='white' size={20} />
       </div>
 
